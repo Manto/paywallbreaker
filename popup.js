@@ -26,20 +26,23 @@ if (els.length > 0) {
 }
 
 // For Economist //
-els = document.getElementsByClassName("paywall")
-if (els.length > 0) {
-  el = els[0]
-  el.style.display = "none";
-
-  articles = document.getElementsByTagName("article");
-  if (articles.length > 0) {
-    article = articles[0]
-    chrome.storage.local.get(window.location.href, function(result) {
-      console.log(result)
-      article.innerHTML = result[window.location.href]
-    });
-  }
+articles = document.getElementsByTagName("article");
+if (articles.length > 0) {
+  article = articles[0]
+  chrome.storage.local.get(window.location.href, function(result) {
+    console.log(result[window.location.href])
+    article.innerHTML = result[window.location.href]
+  });
 }
+
+// els = document.getElementsByClassName("paywall")
+// if (els.length > 0) {
+//   el = els[0]
+//   el.style.position = "absolute";
+//   el.style.x  = -10000;
+//   el.style.y = -10000;
+
+// }
 
 `,
     });
