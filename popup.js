@@ -13,6 +13,8 @@ b = document.getElementsByTagName("body")[0]
 b.setAttribute('data-paywall-overlay-status', '')
 b.style.overflow = '';
 
+overlay = document.getElementById("fortress-modal-paywall-root");
+overlay.style.display = "none";
 
 // els = document.getElementsByClassName("main-column-v2")
 // if (els.length > 0) {
@@ -47,16 +49,20 @@ chrome.storage.local.get(window.location.href, function(result) {
   }
 });
 
-// els = document.getElementsByClassName("paywall")
-// if (els.length > 0) {
-//   el = els[0]
-//   el.style.position = "absolute";
-//   el.style.x  = -10000;
-//   el.style.y = -10000;
+// For Economists //
+els = document.getElementsByClassName("layout-article-regwall")
+if (els.length > 0) {
+  el = els[0]
+  el.style.display = "none";
+}
 
-// }
+els = document.getElementsByClassName("paywall")
+for(i=0; i < els.length; i++) {
+  el = els[i]
+  el.style.display = "none";
+}
 
-`,
-    });
-  });
-};
+`
+    })
+  })
+}
